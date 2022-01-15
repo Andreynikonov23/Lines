@@ -15,7 +15,7 @@ public class Main {
         System.out.println(outBinary(biNum));
         System.out.println("Введите число");
         int num = scanner.nextInt();
-        toBinary(num);
+        check(num);
     }
     public static void toBinary(int num){
         int i = 2, count = 0;
@@ -57,5 +57,19 @@ public class Main {
             res +=array[i];
         }
         return res;
+    }
+    public static void check(int num){
+        String str = String.valueOf(num);
+        int[] array = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            array[i] = Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= 1){
+                toBinary(num);
+            } else
+                System.out.println("Введено недопустимое значение");
+            break;
+        }
     }
 }
