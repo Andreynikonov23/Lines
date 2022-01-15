@@ -15,7 +15,7 @@ public class Main {
         System.out.println();
         System.out.println("Введите восьмиричное число");
         int eightNum = scanner.nextInt();
-        toDecimal(eightNum);
+        check(eightNum);
     }
     public static void toOctal (int tenNum){
         int j = 0;
@@ -58,5 +58,19 @@ public class Main {
             sum += sumArr[i];
         }
         System.out.println(sum);
+    }
+    public static void check(int eightNum){
+        String str = String.valueOf(eightNum);
+        int[] array = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            array[i] = Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= 8){
+                toDecimal(eightNum);
+            } else
+                System.out.println("Введено недопустимое значение");
+            break;
+        }
     }
 }
