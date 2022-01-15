@@ -1,0 +1,194 @@
+package nick.pack;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        /*Создайте конвертер который переводит
+        из шестнадцатиричного числа в десятичное и наооборот
+        из десятичного в двоичное
+        */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите шестнадцатиричное число:");
+        String str = scanner.nextLine();
+        check(str);
+        System.out.println("Введите десятичное число");
+        int num = scanner.nextInt();
+        outHex(num);
+    }
+    public static int toHex(String str) {
+        int[] reverse = new int[toInt(str).length];
+        for (int i = reverse.length - 1, j = 0; i >= 0; i--, j++) {
+            reverse[i] = toInt(str)[j];
+        }
+        int sixteen = 16;
+        int[] array = new int[reverse.length];
+        array[0] = reverse[0];
+        array[1] = reverse[1] * sixteen;
+        for (int i = 2; i < array.length; i++) {
+            sixteen *= 16;
+            array[i] = reverse[i] * sixteen;
+        }
+        int res = 0;
+        for (int i = 0; i < array.length; i++) {
+            res += array[i];
+        }
+        return res;
+    }
+
+
+    public static void outHex(int num){
+        int j = 0;
+        for (int i = num; i > 0; i /=16, j++) {
+        }
+        int[] array = new int[j];
+        for (int i = num, c = 0; i > 0; i /=16, c++) {
+            array[c] = i%16;
+        }
+        int[] reverse = new int[array.length];
+        for (int i = reverse.length -1, c = 0; i >= 0; i--, c++) {
+            reverse[c] = array[i];
+        }
+        System.out.print(toStr(reverse));
+    }
+
+
+
+
+
+
+    public static int[] toInt(String str){
+        char[] chars = new char[str.length()];
+        int[] ints = new int[chars.length];
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = str.charAt(i);
+        }
+        for (int i = 0; i < chars.length; i++) {
+
+                if (chars[i] == '0') {
+                    ints[i] = 0;
+                }
+                if (chars[i] == '1') {
+                    ints[i] = 1;
+                }
+                if (chars[i] == '2') {
+                    ints[i] = 2;
+                }
+                if (chars[i] == '3') {
+                    ints[i] = 3;
+                }
+                if (chars[i] == '4') {
+                    ints[i] = 4;
+                }
+                if (chars[i] == '5') {
+                    ints[i] = 5;
+                }
+                if (chars[i] == '6') {
+                    ints[i] = 6;
+                }
+                if (chars[i] == '7') {
+                    ints[i] = 7;
+                }
+                if (chars[i] == '8') {
+                    ints[i] = 8;
+                }
+                if (chars[i] == '9') {
+                    ints[i] = 9;
+                }
+                if (chars[i] == 'A' || chars[i] == 'a') {
+                    ints[i] = 10;
+                }
+                if (chars[i] == 'B' || chars[i] == 'b') {
+                    ints[i] = 11;
+                }
+                if (chars[i] == 'C' || chars[i] == 'c') {
+                    ints[i] = 12;
+                }
+                if (chars[i] == 'D' || chars[i] == 'd') {
+                    ints[i] = 13;
+                }
+                if (chars[i] == 'E' || chars[i] == 'e') {
+                    ints[i] = 14;
+                }
+                if (chars[i] == 'F' || chars[i] == 'f') {
+                    ints[i] = 15;
+                }
+        }
+        return ints;
+    }
+    public static char[] toStr(int[] num){
+        char[] chars = new char[num.length];
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = (char) num[i];
+        }
+        for (int i = 0; i < chars.length; i++) {
+            if(chars[i] == 0) {
+                chars[i] = '0';
+            }
+            if(chars[i] == 1) {
+                chars[i] = '1';
+            }
+            if(chars[i] == 2) {
+                chars[i] = '2';
+            }
+            if(chars[i] == 3) {
+                chars[i] = '3';
+            }
+            if(chars[i] == 4) {
+                chars[i] = '4';
+            }
+            if(chars[i] == 5) {
+                chars[i] = '5';
+            }
+            if(chars[i] == 6) {
+                chars[i] = '6';
+            }
+            if(chars[i] == 7) {
+                chars[i] = '7';
+            }
+            if(chars[i] == 8) {
+                chars[i] = '8';
+            }
+            if(chars[i] == 9) {
+                chars[i] = '9';
+            }
+            if(chars[i] == 10) {
+                chars[i] = 'A';
+            }
+            if(chars[i] == 11) {
+                chars[i] = 'B';
+            }
+            if(chars[i] == 12) {
+                chars[i] = 'C';
+            }
+            if(chars[i] == 13) {
+                chars[i] = 'D';
+            }
+            if(chars[i] == 14) {
+                chars[i] = 'E';
+            }
+            if(chars[i] == 15) {
+                chars[i] = 'F';
+            }
+        }
+        return chars;
+    }
+    public static void check(String str) {
+        char[] chars = new char[str.length()];
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = str.charAt(i);
+        }
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '0' || chars[i] == '1' || chars[i] == '2' || chars[i] == '3' || chars[i] == '4' || chars[i] == '5' || chars[i] == '6'
+                    || chars[i] == '7' || chars[i] == '8' || chars[i] == '9' || chars[i] == 'A' || chars[i] == 'a' || chars[i] == 'B' || chars[i] == 'b'
+                    || chars[i] == 'C' || chars[i] == 'c' || chars[i] == 'D' || chars[i] == 'd' || chars[i] == 'E' || chars[i] == 'e'
+                    || chars[i] == 'F' || chars[i] == 'f') {
+                System.out.println(toHex(str));
+            } else
+                System.out.println("Введено неверное число");
+            break;
+        }
+    }
+}
