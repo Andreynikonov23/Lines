@@ -4,6 +4,9 @@ package nick.pack;
 import java.util.Scanner;
 
 public class Main {
+    /*Создайте программу которая конвертирует из шестнадцатиричного
+      числа в двоичное число и наоборот.
+    */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите 16-ное число");
