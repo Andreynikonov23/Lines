@@ -175,20 +175,24 @@ public class Main {
         }
         return chars;
     }
-    public static void check(String str) {
+     public static void check(String str) {
         char[] chars = new char[str.length()];
         for (int i = 0; i < chars.length; i++) {
             chars[i] = str.charAt(i);
         }
-        for (int i = 0; i < chars.length; i++) {
+        int i = 0;
+        for (; i < chars.length; i++) {
             if (chars[i] == '0' || chars[i] == '1' || chars[i] == '2' || chars[i] == '3' || chars[i] == '4' || chars[i] == '5' || chars[i] == '6'
                     || chars[i] == '7' || chars[i] == '8' || chars[i] == '9' || chars[i] == 'A' || chars[i] == 'a' || chars[i] == 'B' || chars[i] == 'b'
                     || chars[i] == 'C' || chars[i] == 'c' || chars[i] == 'D' || chars[i] == 'd' || chars[i] == 'E' || chars[i] == 'e'
                     || chars[i] == 'F' || chars[i] == 'f') {
-                System.out.println(toHex(str));
-            } else
+                if (i == chars.length - 1){
+                    System.out.println(toHex(str));
+                }
+            } else {
                 System.out.println("Введено неверное число");
-            break;
+                break;
+            }
         }
     }
 }
