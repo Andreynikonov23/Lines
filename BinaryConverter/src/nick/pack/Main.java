@@ -67,7 +67,7 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             if (array[i] <= 1){
                 if (i == array.length -1) {
-                    toBinary(num);
+                    outBinary(num);
                 }
             } else {
                 System.out.println("Введено недопустимое значение");
