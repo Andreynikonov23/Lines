@@ -38,7 +38,7 @@ public class Main {
         String str = String.valueOf(eightNum);
         int[] array = new int[str.length()];
         int a = str.length();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < array.Length; i++) {
             array[i] = Integer.parseInt(String.valueOf(str.charAt(i)));
         }
         int[] reverse = new int[array.length];
@@ -67,10 +67,13 @@ public class Main {
         }
         for (int i = 0; i < array.length; i++) {
             if (array[i] <= 8){
-                toDecimal(eightNum);
-            } else
+                if (i == array.Length){
+                    toDecimal(eightNum);
+                }
+            } else {
                 System.out.println("Введено недопустимое значение");
-            break;
+                break;
+            }
         }
     }
 }
