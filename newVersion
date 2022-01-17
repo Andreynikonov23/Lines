@@ -1,0 +1,29 @@
+package nick.pack;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+       /*
+       Реализуй метод changePath(String, String) так,
+       чтобы он заменял версию jdk в пути,
+       полученном первым параметром метода,
+       на версию, полученную вторым параметром, и возвращал новый путь.
+        Версия jdk начинается со строки "jdk" и заканчивается на "/".
+        */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите путь");
+        String url = scanner.nextLine();
+        System.out.println("Введите новую версию jdk");
+        String jdk = scanner.nextLine();
+        System.out.println(changePath(url, jdk));
+    }
+    public static String changePath(String url, String jdk2){
+        int beginIndex = url.indexOf("jdk");
+        int endIndex = url.indexOf("\\", beginIndex);
+        String one = url.substring(0,beginIndex);
+        String two = url.substring(endIndex);
+        String res = one + jdk2 + two;
+        return res;
+    }
+}
