@@ -1,0 +1,38 @@
+package nick.pack;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+       /*
+       Метод getIndexFromFirstWord(String, String) и
+       метод getIndexFromLastWord(String, String) принимают строку и слово.
+       Нужно, чтобы метод getIndexFromFirstWord(String, String)
+       вернул индекс первого символа первого слова (второй параметр метода)
+       в строке (первый параметр метода).
+       А метод getIndexFromLastWord(String, String)
+       вернул индекс первого символа последнего слова (второй параметр метода)
+       в строке (первый параметр метода).
+        */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите предложение");
+        String str = scanner.nextLine();
+        System.out.println("Введите слово");
+        String word = scanner.nextLine();
+        System.out.println("Введите слово");
+        String lastWord = scanner.nextLine();
+        System.out.println(getIndexFromFirstWord(str, word));
+        System.out.println(getIndexFromLastWord(str, lastWord));
+    }
+    public static int getIndexFromFirstWord(String str, String firstWord){
+        int index = 0;
+        index = str.indexOf(firstWord);
+
+        return index;
+    }
+    public static int getIndexFromLastWord(String str, String lastWord){
+        int lastIndex = 0;
+        lastIndex = str.indexOf(lastWord);
+        return lastIndex;
+    }
+}
