@@ -1,0 +1,25 @@
+package nick.pack;
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Сделай так, чтобы метод format(String name, int salary)
+        возвращал строку в таком виде:
+        Меня зовут <name>. Я буду зарабатывать $<salary> в месяц.
+        Для этого используй метод String.format().
+         */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите свое имя");
+        String name = scanner.nextLine();
+        System.out.println("Какую зарплату вы хотите в $");
+        int salary = scanner.nextInt();
+        System.out.println(format(name, salary));
+    }
+    public static String format(String name, int salary){
+        String str = String.format("Меня зовут %s. Я буду зарабатывать $%d в месяц.", name, salary);
+        return str;
+    }
+}
