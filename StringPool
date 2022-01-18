@@ -1,0 +1,28 @@
+package nick.pack;
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Метод equal(String, String) сравнивает строки по ссылке,
+        используя оператор ==. Нужно сделать так, чтобы метод возвращал true,
+        если содержимое строк одинаковое,
+        и false - если разное.
+        */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Первая фраза");
+        String a = scanner.nextLine();
+        System.out.println("Вторая фраза");
+        String b = scanner.nextLine();
+        System.out.println(equals(a,b));
+    }
+    public static boolean equals (String a, String b){
+        boolean b1;
+        String s1 = a.intern();
+        String s2 = b.intern();
+        b1 = s1==s2;
+        return b1;
+    }
+}
