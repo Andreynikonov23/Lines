@@ -1,0 +1,29 @@
+package nick.pack;
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "Планеты солнечной системы:";
+        String s = "Планеты солнечной системы: Меркурий, Луна Земля, Марс, Юпитер, Сатурн, Уран, Нептун, Плутон";
+        System.out.println(toAdd(str, new String[]{"Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун", "Плутон"}));
+        System.out.println(s);
+        StringBuilder builder = new StringBuilder(s);
+        int start = builder.indexOf("Луна");
+        int end = builder.indexOf(",", start);
+        replace(s, "Венера", start, end);
+    }
+    public static StringBuilder toAdd(String str, String[] strArray){
+        StringBuilder builder = new StringBuilder(str);
+        for (int i = 0; i < strArray.length; i++) {
+            builder.append(" " + strArray[i] + ",");
+        }
+        return builder;
+    }
+    public static void replace(String str, String work, int start, int end){
+        StringBuilder builder = new StringBuilder(str);
+        builder.replace(start, end, work);
+        System.out.println(builder);
+    }
+}
