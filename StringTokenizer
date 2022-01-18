@@ -1,0 +1,22 @@
+package nick.pack;
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите путь");
+        String query = scanner.nextLine();
+        System.out.println("Как будет делиться строка?");
+        String delimiter = scanner.nextLine();
+        getTokens(query, delimiter);
+
+    }
+    public static void getTokens(String query, String delimiter) {
+        StringTokenizer stringTokenizer = new StringTokenizer(query, delimiter);
+        while (stringTokenizer.hasMoreTokens()){
+            System.out.println(stringTokenizer.nextToken());
+        }
+    }
+}
