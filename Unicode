@@ -1,0 +1,14 @@
+package nick.pack;
+
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Выведи на экран: 日本語
+         */
+        char a = 0x65E5;
+        char b = 0x672C;
+        char c = 0x8A9E;
+        System.out.printf("%c%c%c", a,b,c);
+    }
+}
