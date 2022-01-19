@@ -1,0 +1,21 @@
+package nick.pack;
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Реализуй метод deleteSpaces(String) чтобы в строке,
+        полученной входящим параметром, были удалены все пробелы.
+         */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert string");
+        String str = scanner.nextLine();
+        System.out.println(deleteSpaces(str));
+    }
+    public static String deleteSpaces(String str){
+        str = str.replace(" ", "");
+        return str;
+    }
+}
