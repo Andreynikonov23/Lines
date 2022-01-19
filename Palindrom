@@ -18,12 +18,9 @@ public class Main {
         isPalindrome(str);
     }
     public static void isPalindrome(String str){
-        str = str.toUpperCase();
         StringBuilder builder = new StringBuilder(str);
         String temp = String.valueOf(builder.reverse());
-        String t1 = str.intern();
-        String t2 = temp.intern();
-        if (t1 == t2){
+        if (str.equalsIgnoreCase(temp)){
             System.out.println("это палиндром");
         } else
             System.out.println("Это не палиндром");
