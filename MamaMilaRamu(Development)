@@ -13,68 +13,14 @@ public class Main {
         int firstIndexM = str.indexOf("М");
         int lastIndexM = str.lastIndexOf("М");
         int indexR = str.indexOf("Р");
-        System.out.printf("%d %d %d", firstIndexM, lastIndexM, indexR);
-        System.out.println();
-        int[] array = {firstIndexM, lastIndexM, indexR};
-        for (int i = 0; i < array.length * 2; i++) {
-            for (int j = i; j < array.length * 2; j++) {
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-                String mila1 = null;
-                String mom1 = null;
-                String rama1 = null;
-                System.out.println(Arrays.toString(array));
-                if (array[j] == 4) {
-                    mila1 = str.substring(4, 8);
-                    System.out.print(mila1);
-                    for (int k = 1; k < array.length; k++) {
-                        if (array[k] == 8) {
-                            rama1 = str.substring(8);
-                            System.out.print(rama1);
-                        }
-                        if (array[k] == 0) {
-                            mom1 = str.substring(0, 4);
-                            System.out.print(mom1);
-                        }
-                    }
-                    System.out.println();
-                }
-                if (array[j] == 0) {
-                    mom1 = str.substring(0, 4);
-                    System.out.print(mom1);
-                    for (int k = 1; k < array.length; k++) {
-                        if (array[k] == 8) {
-                            rama1 = str.substring(8);
-                            System.out.print(rama1);
-                        }
-                        if (array[k] == 4) {
-                            mila1 = str.substring(4, 8);
-                            System.out.print(mila1);
-                        }
-                    }
-                    System.out.println();
-                }
-                if (array[j] == 8) {
-                    rama1 = str.substring(8);
-                    System.out.print(rama1);
-                    for (int k = 1; k < array.length; k++) {
-                        if (array[k] == 0) {
-                            mom1 = str.substring(0, 4);
-                            System.out.print(mom1);
-                        }
-                        if (array[k] == 0) {
-                            mila1 = str.substring(4, 8);
-                            System.out.print(mila1);
-                        }
-                    }
-                    System.out.println();
-                }
-
-            }
-        }
-        for (int i = 0; i < array.length; i++) {
-
-        }
+        String mama = str.substring(firstIndexM, lastIndexM);
+        String mila = str.substring(lastIndexM, indexR);
+        String rama = str.substring(indexR);
+        System.out.println(str);
+        System.out.printf("%s%s%s\n", mama, rama, mila);
+        System.out.printf("%s%s%s\n", mila, mama, rama);
+        System.out.printf("%s%s%s\n", rama, mila, mama);
+        System.out.printf("%s%s%s\n", rama, mama, mila);
+        System.out.printf("%s%s%s\n", mila, rama, mama);
     }
 }
