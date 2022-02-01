@@ -1,0 +1,40 @@
+package nick.pack;
+
+
+import java.util.Scanner;
+
+public class Main {
+    /*
+    Реализуй метод wordsCount(String) чтобы он возвращал количество слов в строке,
+    полученной входящим параметром.
+    Подсказка: Слово - это последовательность символов не пробелов, которые разделены одним пробелом.
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите фразу");
+        String str = scanner.nextLine();
+        System.out.println(wordsCount(str));
+    }
+    public static int wordsCount(String word){
+        StringBuilder stringBuilder = new StringBuilder(word);
+        word = String.valueOf(stringBuilder.append(" "));
+        int count = 0;
+        String tmp = null;
+        int spaceIndex = 0;
+        if (word.charAt(0) ==' '){
+            count--;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == ' '){
+                tmp = word.substring(spaceIndex, i);
+                spaceIndex = i;
+                if (tmp.equals(" ")){
+
+                } else {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
