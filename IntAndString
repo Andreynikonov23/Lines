@@ -1,0 +1,24 @@
+package nick.pack;
+
+import java.util.Scanner;
+
+public class Main {
+    /*
+    Метод add должен складывать входящие аргуметы и
+    возвращать строку вида: a+b=sum
+    Например, если передать в метод (7, 8), он должен вернуть строку "7+8=15".
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число a");
+        int a = scanner.nextInt();
+        System.out.println("Введите число b");
+        int b = scanner.nextInt();
+        System.out.println(add(a, b));
+    }
+    public static String add(int a, int b){
+        int sum = a + b;
+        String str = a + "+" + b + "=" + sum;
+        return str;
+    }
+}
