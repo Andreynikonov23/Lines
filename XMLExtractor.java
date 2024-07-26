@@ -1,48 +1,40 @@
-package nick.pack;
-
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
 import java.util.regex.*;
 
-public class Solution{
-    private static final Pattern PATTERN =  Pattern.compile(".*<([a-zA-Z0-9\\s]+?)>(.+)<(/\\1)>", Pattern.CASE_INSENSITIVE);
-    public static void main(String[] args){
+public class XMLExtractor {
+    private static final Pattern PATTERN = Pattern.compile("<(.+?)>(.+)<(/\\1)>");
+
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int testCases = Integer.parseInt(in.nextLine());
-        while(testCases>0){
+        while (testCases > 0) {
             String line = in.nextLine();
             Matcher matcher = PATTERN.matcher(line);
-            boolean isFind = extract(matcher);
-            if (!isFind) {
+            int count = extract(matcher);
+            if (count == 0) {
                 System.out.println("None");
             }
             testCases--;
         }
     }
-    private static boolean extract(Matcher matcher) {
+
+    private static int extract(Matcher matcher) {
+        int count = 0;
         while (matcher.find()) {
             if (matcher.group(1).equals(matcher.group(3).replace("/", ""))) {
+                count++;
                 String content = matcher.group(2);
                 Matcher underMatcher = PATTERN.matcher(content);
-                if (content.matches(PATTERN.pattern())) {
-                    extract(underMatcher);
+                Matcher testMatcher = PATTERN.matcher(content);
+                if (testMatcher.find()) {
+                    count += extract(underMatcher);
                 } else if (content.contains("<") && content.contains(">")) {
-                    System.out.println("None");
-                    return true;
+                    count--;
                 } else {
                     System.out.println(content);
-                    return true;
                 }
-            } else {
-                System.out.println("None");
-                return true;
             }
         }
-        return false;
+        return count;
     }
 }
-
-
-
